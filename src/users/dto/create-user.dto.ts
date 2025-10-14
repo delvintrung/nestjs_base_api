@@ -1,8 +1,8 @@
 import { IsEmail, IsString, MinLength, IsNotEmpty } from 'class-validator';
 
 export class CreateUserDto {
-  @IsString() // Phải là một chuỗi
-  @IsNotEmpty() // Không được để trống
+  @IsString()
+  @IsNotEmpty()
   username: string;
 
   @IsString()

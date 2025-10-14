@@ -13,6 +13,7 @@ import { ToursService } from './tours.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { CreateTourDto } from './dto/create-tour.dto';
 import { UpdateTourDto } from './dto/update-tour.dto';
+import { AdminGuard } from 'src/auth/admin/admin.guard';
 
 @Controller('tours')
 export class ToursController {
@@ -44,8 +45,9 @@ export class ToursController {
   }
 
   @Delete(':id')
-  @UseGuards(AuthGuard)
-  remove(@Param('id', ParseIntPipe) id: number) {
-    return this.toursService.remove(id);
+  @UseGuards(AuthGuard, AdminGuard)
+  remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
+    const result = this.toursService.remove(id);
+    return result;
   }
 }

@@ -8,5 +8,8 @@ export class User {
   @Column()
   username: string;
   @Column()
-  password: string; // Đây là password đã được hash
+  password: string;
+
+  @Column({ default: false })
+  isAdmin: boolean;
 }
