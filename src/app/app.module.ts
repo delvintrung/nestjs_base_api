@@ -26,7 +26,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         database: process.env.DATABASE_NAME,
         entities: [Tour, User],
         // Hoặc chỉ định rõ entities: [Tour, User],
-        synchronize: true, // Chỉ dùng trong phát triển (development)
+        synchronize: false,
+        migrations: [__dirname + '/migrations/*{.ts,.js}'],
       }),
     }),
     ToursModule,

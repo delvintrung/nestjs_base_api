@@ -10,4 +10,7 @@ export class Tour {
 
   @Column()
   price: number;
+
+  @Column({ type: 'text', nullable: true })
+  description: string;
 }
