@@ -14,6 +14,7 @@ import { AuthGuard } from '../auth/auth.guard';
 import { CreateTourDto } from './dto/create-tour.dto';
 import { UpdateTourDto } from './dto/update-tour.dto';
 import { AdminGuard } from 'src/auth/admin/admin.guard';
+import { EmployeeGuard } from 'src/auth/employee/employee.guard';
 
 @Controller('tours')
 export class ToursController {
@@ -36,7 +37,7 @@ export class ToursController {
   }
 
   @Patch(':id')
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, EmployeeGuard)
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateTourDto: UpdateTourDto,

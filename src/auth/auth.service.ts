@@ -26,6 +26,7 @@ export class AuthService {
       sub: user.id,
       username: user.username,
       isAdmin: user.isAdmin,
+      isEmployee: user.isEmployee,
     };
     return {
       access_token: await this.jwtService.signAsync(payload),

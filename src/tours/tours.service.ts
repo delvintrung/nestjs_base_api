@@ -31,6 +31,7 @@ export class ToursService {
     const newTourEntity = this.toursRepository.create({
       name: createTourDto.name,
       price: createTourDto.price,
+      description: createTourDto.description,
     });
     return this.toursRepository.save(newTourEntity);
   }

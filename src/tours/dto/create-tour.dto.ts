@@ -8,4 +8,8 @@ export class CreateTourDto {
   @IsNumber()
   @Min(0)
   price: number;
+
+  @IsString()
+  @IsNotEmpty()
+  description: string;
 }
